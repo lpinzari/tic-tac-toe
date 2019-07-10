@@ -73,4 +73,4 @@ const menu = {
     return $('.grid').css('visibility','visible');
   }
 
-}
+};

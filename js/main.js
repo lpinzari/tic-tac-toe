@@ -42,7 +42,7 @@ function displayResult() {
     result.style.display = 'block';
 
     finalText = 'Do you want to start a New Game? ';
-    if (game.winner.length ===1) {
+    if (game.hasWinner()) {
       h1Res.innerHTML = 'Congratulations!';
       let name = game.getPlayerTurn().getName();
       pRes.innerHTML = `${name} won the game <br> ${finalText}`;

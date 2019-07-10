@@ -148,6 +148,16 @@ const game = {
         }
     }
     return false;
+  },
+
+  hasWinner: function () {
+
+    if (this.winner.length === 1) {
+      return true;
+    } else {
+      return false
+    }
+    
   }
 
 };
