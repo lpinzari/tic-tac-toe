@@ -16,11 +16,15 @@ const menu = {
   },
 
   getNamePly1: function() {
+
     return $('#player1').val();
+
   },
 
   getNamePly2: function() {
+
     return $('#player2').val();
+    
   },
 
   getSymbolClass: function(symbol) {

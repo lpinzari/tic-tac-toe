@@ -1,3 +1,18 @@
+/**
+* Copyright (c) 2019
+* @author Ludovico Pinzari
+* @summary this javascript file contains the main program to start (init) and control the application
+*   the gameController object is responsible to handle the interaction between the model.js
+*   and view.js files. It also create the events listeners of the application.
+*
+* OBJECTS            EVENTS              OBJECTS
+*-----------------------------------------------------------
+* model.js           main.js              view.js
+*   - player      menuHandler               - menu
+*   - game        gridHandler               - board
+*                 modalVictoryHandler       - modalVictory
+* ----------------------------------------------------------
+*/
 
 
 const gameController = {
@@ -112,7 +127,7 @@ const gameController = {
   },
 
   /*
-   * INITIALIZATION 
+   * INITIALIZATION
    */
 
   init: function() {
