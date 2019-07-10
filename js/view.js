@@ -4,7 +4,8 @@
  *
  * Description.
  *  menu is an object responsible to get and render the properties in the selection menu
- *  in the index.html and makes visible the grid.
+ *  in the index.html and makes visible the grid. To add a new symbols use font awsome and
+ *  include in getSymbolClass and updateSymbols functions.
 */
 const menu = {
 
@@ -40,6 +41,14 @@ const menu = {
       return "fas fa-circle";
     } else if (symbol === "star") {
       return "fas fa-star";
+    } else if (symbol === "diamond") {
+      return "fas fa-gem";
+    } else if (symbol === "bomb") {
+      return "fas fa-bomb";
+    } else if (symbol === "heart") {
+      return "fas fa-heart";
+    } else if (symbol === "bolt") {
+      return "fas fa-bolt";
     }
 
   },
@@ -55,6 +64,14 @@ const menu = {
       icon1.innerHTML = '<i class="fas fa-circle" aria-hidden="true"></i>';
     } else if(symbol1 === "star") {
       icon1.innerHTML = '<i class="fas fa-star" aria-hidden="true"></i>';
+    } else if(symbol1 === "diamond") {
+      icon1.innerHTML = '<i class="fas fa-gem" aria-hidden="true"></i>';
+    } else if(symbol1 === "bomb") {
+      icon1.innerHTML = '<i class="fas fa-bomb" aria-hidden="true"></i>';
+    } else if(symbol1 === "heart") {
+      icon1.innerHTML = '<i class="fas fa-heart" aria-hidden="true"></i>';
+    } else if(symbol1 === "bolt") {
+      icon1.innerHTML = '<i class="fas fa-bolt aria-hidden="true"></i>';
     }
 
     let symbol2 = $('#symbol2').val();
@@ -66,6 +83,14 @@ const menu = {
       icon2.innerHTML = '<i class="fas fa-circle" aria-hidden="true"></i>';
     } else if(symbol2 === "star") {
       icon2.innerHTML = '<i class="fas fa-star" aria-hidden="true"></i>';
+    } else if(symbol2 === "diamond") {
+      icon2.innerHTML = '<i class="fas fa-gem" aria-hidden="true"></i>';
+    } else if(symbol2 === "bomb") {
+      icon2.innerHTML = '<i class="fas fa-bomb" aria-hidden="true"></i>';
+    } else if(symbol2 === "heart") {
+      icon2.innerHTML = '<i class="fas fa-heart" aria-hidden="true"></i>';
+    } else if(symbol2 === "bolt") {
+      icon2.innerHTML = '<i class="fas fa-bolt aria-hidden="true"></i>';
     }
 
   },
