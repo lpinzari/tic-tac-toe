@@ -74,3 +74,31 @@ const menu = {
   }
 
 };
+
+const modalVictory = {
+
+  displayResult: function(hasWinner) {
+
+    modal.style.display = 'block';
+    result.style.display = 'block';
+
+    finalText = 'Do you want to start a New Game? ';
+    if (hasWinner) {
+      h1Res.innerHTML = 'Congratulations!';
+      let name = game.getPlayerTurn().getName();
+      pRes.innerHTML = `${name} won the game <br> ${finalText}`;
+    } else {
+      h1Res.innerHTML = 'Challenging!';
+      pRes.innerHTML = `There is no winner <br> ${finalText}`;
+    }
+
+  },
+
+  hide: function() {
+
+    modal.style.display = 'none';
+    result.style.display = 'none';
+    
+  }
+
+}

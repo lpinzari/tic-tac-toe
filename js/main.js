@@ -36,21 +36,21 @@ function play() {
 
 //=========== VIEW ======================//
 
-function displayResult() {
-
-    modal.style.display = 'block';
-    result.style.display = 'block';
-
-    finalText = 'Do you want to start a New Game? ';
-    if (game.hasWinner()) {
-      h1Res.innerHTML = 'Congratulations!';
-      let name = game.getPlayerTurn().getName();
-      pRes.innerHTML = `${name} won the game <br> ${finalText}`;
-    } else {
-      h1Res.innerHTML = 'Challenging!';
-      pRes.innerHTML = `There is no winner <br> ${finalText}`;
-    }
-}
+// function displayResult() {
+//
+//     modal.style.display = 'block';
+//     result.style.display = 'block';
+//
+//     finalText = 'Do you want to start a New Game? ';
+//     if (game.hasWinner()) {
+//       h1Res.innerHTML = 'Congratulations!';
+//       let name = game.getPlayerTurn().getName();
+//       pRes.innerHTML = `${name} won the game <br> ${finalText}`;
+//     } else {
+//       h1Res.innerHTML = 'Challenging!';
+//       pRes.innerHTML = `There is no winner <br> ${finalText}`;
+//     }
+// }
 
 
 /********************************************
@@ -90,7 +90,7 @@ function renderCell(cell) {
 
 }
 
-function markCell(event){
+function markCell(event) {
 
     // See if the element clicked is an empty cell
     if (isEmptyCell(event)){
@@ -102,7 +102,7 @@ function markCell(event){
         renderCell(cell);
         if (game.isOver()) {
 
-          displayResult();
+          modalVictory.displayResult(game.hasWinner());
         } else {
           game.switchTurn();
         }
@@ -116,8 +116,7 @@ function markCell(event){
 */
 function startNewGame () {
 
-    modal.style.display = 'none';
-    result.style.display = 'none';
+    modalVictory.hide();
     location.reload();
 
 }
@@ -125,14 +124,14 @@ function startNewGame () {
 /**
 * @desc close the pop up screen
 */
-function exitGame (){
+function exitGame () {
 
-    modal.style.display = 'none';
-    result.style.display = 'none';
+    modalVictory.hide();
 }
 
 // reload the page
-function restartGame(){
+function restartGame() {
 
     location.reload();
+
 }
