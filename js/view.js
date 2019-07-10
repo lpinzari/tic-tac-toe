@@ -98,7 +98,37 @@ const modalVictory = {
 
     modal.style.display = 'none';
     result.style.display = 'none';
-    
+
+  }
+
+};
+
+const board = {
+
+  isEmptyCell: function(event) {
+
+    let element = event.target;
+    let classes = element.classList;
+
+     if (classes.contains('cell') && classes.length == 1)
+        return true;
+
+    return false;
+
+  },
+
+  renderCell: function(cell, symbol) {
+
+    cell.classList.add('show', 'marked');
+    if ( game.getTurn() === 0 ) {
+      cell.classList.add('color1');
+    } else {
+      cell.classList.add('color2');
+    }
+
+    // let symbol = game.getPlayerTurn().getSymbol();
+    cell.innerHTML=`<i class="${symbol}"></i>`;
+
   }
 
 }

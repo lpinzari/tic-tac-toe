@@ -34,24 +34,6 @@ function play() {
 }
 
 
-//=========== VIEW ======================//
-
-// function displayResult() {
-//
-//     modal.style.display = 'block';
-//     result.style.display = 'block';
-//
-//     finalText = 'Do you want to start a New Game? ';
-//     if (game.hasWinner()) {
-//       h1Res.innerHTML = 'Congratulations!';
-//       let name = game.getPlayerTurn().getName();
-//       pRes.innerHTML = `${name} won the game <br> ${finalText}`;
-//     } else {
-//       h1Res.innerHTML = 'Challenging!';
-//       pRes.innerHTML = `There is no winner <br> ${finalText}`;
-//     }
-// }
-
 
 /********************************************
  *         Click Event Listener              *
@@ -63,43 +45,20 @@ $('#ok-Button').on('click',startNewGame);
 $('#no-Button').on('click',exitGame);
 
 
-function isEmptyCell(event){
-
-    let element = event.target;
-    let classes = element.classList;
-
-     if (classes.contains('cell') && classes.length == 1)
-        return true;
-
-    return false;
-}
-
-function renderCell(cell) {
-
-
-    cell.classList.add('show', 'marked');
-    if ( game.getTurn() === 0 ) {
-      cell.classList.add('color1');
-    } else {
-      cell.classList.add('color2');
-    }
-
-    let symbol = game.getPlayerTurn().getSymbol();
-    cell.innerHTML=`<i class="${symbol}"></i>`;
-
-
-}
 
 function markCell(event) {
 
     // See if the element clicked is an empty cell
-    if (isEmptyCell(event)){
+    if (board.isEmptyCell(event)){
 
         var cell = event.target;
         let value = cell.innerText;
 
         game.getPlayerTurn().addMove(value);
-        renderCell(cell);
+
+        let symbol = game.getPlayerTurn().getSymbol();
+        board.renderCell(cell, symbol);
+
         if (game.isOver()) {
 
           modalVictory.displayResult(game.hasWinner());
@@ -127,6 +86,7 @@ function startNewGame () {
 function exitGame () {
 
     modalVictory.hide();
+
 }
 
 // reload the page
