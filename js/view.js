@@ -1,6 +1,11 @@
 //================ VIEW ====================//
 
-
+/* object: menu
+ *
+ * Description.
+ *  menu is an object responsible to get and render the properties in the selection menu
+ *  in the index.html and makes visible the grid.
+*/
 const menu = {
 
   getSymbolPly1: function() {
@@ -24,7 +29,7 @@ const menu = {
   getNamePly2: function() {
 
     return $('#player2').val();
-    
+
   },
 
   getSymbolClass: function(symbol) {
@@ -66,18 +71,30 @@ const menu = {
   },
 
   hide: function() {
+
     return $('.menu').hide();
+
   },
 
   showPanel: function() {
+
     return $('.panel').css('visibility','visible');
+
   },
 
   showGrid: function() {
+
     return $('.grid').css('visibility','visible');
+
   }
 
 };
+
+/* object: modalVictory
+ *
+ * Description.
+ *  modalVictory is responsible to render and get the properties in the modal and result blocks
+*/
 
 const modalVictory = {
 
@@ -106,6 +123,12 @@ const modalVictory = {
   }
 
 };
+
+/* object: board
+ *
+ * Description.
+ *  board is responsible to set and get the properties in the grid.
+*/
 
 const board = {
 
