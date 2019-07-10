@@ -149,6 +149,12 @@ const modalVictory = {
 
 };
 
+/* object: panel
+ *
+ * Description.
+ *  panel is responsible to render the player's name and symbol in the panel
+*/
+
 const panel = {
 
   renderCurrentPlayer: function(name, symbolClass) {
