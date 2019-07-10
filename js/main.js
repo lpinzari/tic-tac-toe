@@ -63,6 +63,36 @@ const gameController = {
 
   },
 
+  markCell: function(event) {
+
+      // See if the element clicked is an empty cell
+      if (board.isEmptyCell(event)){
+
+          var cell = event.target;
+          let value = cell.innerText;
+
+          game.getPlayerTurn().addMove(value);
+
+          let symbol = game.getPlayerTurn().getSymbol();
+          board.renderCell(cell, symbol);
+
+          if (game.isOver()) {
+
+            modalVictory.displayResult(game.hasWinner());
+          } else {
+            game.switchTurn();
+          }
+
+       }
+
+  },
+
+  restartGame: function() {
+
+    location.reload();
+
+  },
+
   menuHandler: function() {
 
     $('#symbol1').on('change', menu.updateSymbols);
@@ -71,9 +101,17 @@ const gameController = {
 
   },
 
+  gridHandler: function() {
+
+    $('.grid').on('click', markCell);
+    $('.restart').on('click',restartGame);
+
+  },
+
   init: function() {
 
     this.menuHandler();
+    this.gridHandler();
 
   }
 
@@ -87,8 +125,6 @@ gameController.init();
  *         Click Event Listener              *
  *********************************************/
 
-$('.grid').on('click', markCell);
-$('.restart').on('click',restartGame);
 $('#ok-Button').on('click',startNewGame);
 $('#no-Button').on('click',exitGame);
 
