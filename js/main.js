@@ -1,37 +1,85 @@
 
 
-$('#symbol1').on('change', menu.updateSymbols);
-$('#symbol2').on('change', menu.updateSymbols);
-$('#playgame').on('click', play);
+// $('#symbol1').on('change', menu.updateSymbols);
+// $('#symbol2').on('change', menu.updateSymbols);
+// $('#playgame').on('click', play);
+//
+//
+// function play() {
+//
+//   let symbolPly1 = menu.getSymbolPly1();
+//   let symbolPly2 = menu.getSymbolPly2();
+//   let namePly1 = menu.getNamePly1();
+//   let namePly2 = menu.getNamePly2();
+//
+//   if (namePly1 === "") {
+//     namePly1 = "Player1";
+//   }
+//
+//   if (namePly2 === "") {
+//     namePly2 = "Player2";
+//   }
+//
+//   const player1 = player(namePly1,menu.getSymbolClass(symbolPly1));
+//   const player2 = player(namePly2,menu.getSymbolClass(symbolPly2));
+//
+//   game.addPlayer(player1);
+//   game.addPlayer(player2);
+//   game.setTurn(0);
+//
+//   menu.hide();
+//   menu.showPanel();
+//   menu.showGrid();
+//
+// }
 
+const gameController = {
 
-function play() {
+  play: function() {
 
-  let symbolPly1 = menu.getSymbolPly1();
-  let symbolPly2 = menu.getSymbolPly2();
-  let namePly1 = menu.getNamePly1();
-  let namePly2 = menu.getNamePly2();
+    let symbolPly1 = menu.getSymbolPly1();
+    let symbolPly2 = menu.getSymbolPly2();
+    let namePly1 = menu.getNamePly1();
+    let namePly2 = menu.getNamePly2();
 
-  if (namePly1 === "") {
-    namePly1 = "Player1";
+    if (namePly1 === "") {
+      namePly1 = "Player1";
+    }
+
+    if (namePly2 === "") {
+      namePly2 = "Player2";
+    }
+
+    const player1 = player(namePly1,menu.getSymbolClass(symbolPly1));
+    const player2 = player(namePly2,menu.getSymbolClass(symbolPly2));
+
+    game.addPlayer(player1);
+    game.addPlayer(player2);
+    game.setTurn(0);
+
+    menu.hide();
+    menu.showPanel();
+    menu.showGrid();
+
+  },
+
+  menuHandler: function() {
+
+    $('#symbol1').on('change', menu.updateSymbols);
+    $('#symbol2').on('change', menu.updateSymbols);
+    $('#playgame').on('click', this.play);
+
+  },
+
+  init: function() {
+
+    this.menuHandler();
+
   }
 
-  if (namePly2 === "") {
-    namePly2 = "Player2";
-  }
+};
 
-  const player1 = player(namePly1,menu.getSymbolClass(symbolPly1));
-  const player2 = player(namePly2,menu.getSymbolClass(symbolPly2));
-
-  game.addPlayer(player1);
-  game.addPlayer(player2);
-  game.setTurn(0);
-
-  menu.hide();
-  menu.showPanel();
-  menu.showGrid();
-
-}
+gameController.init();
 
 
 

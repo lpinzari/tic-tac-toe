@@ -126,7 +126,6 @@ const board = {
       cell.classList.add('color2');
     }
 
-    // let symbol = game.getPlayerTurn().getSymbol();
     cell.innerHTML=`<i class="${symbol}"></i>`;
 
   }
