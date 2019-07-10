@@ -5,15 +5,12 @@ $('#symbol2').on('change', menu.updateSymbols);
 $('#playgame').on('click', play);
 
 
-
-
-
 function play() {
 
-  let symbol1 = $('#symbol1').val();
-  let symbol2 = $('#symbol2').val();
-  let namePly1 = $('#player1').val();
-  let namePly2 = $('#player2').val();
+  let symbolPly1 = menu.getSymbolPly1();
+  let symbolPly2 = menu.getSymbolPly2();
+  let namePly1 = menu.getNamePly1();
+  let namePly2 = menu.getNamePly2();
 
   if (namePly1 === "") {
     namePly1 = "Player1";
@@ -23,17 +20,16 @@ function play() {
     namePly2 = "Player2";
   }
 
-  const player1 = player(namePly1,menu.getSymbolClass(symbol1));
-  const player2 = player(namePly2,menu.getSymbolClass(symbol2));
+  const player1 = player(namePly1,menu.getSymbolClass(symbolPly1));
+  const player2 = player(namePly2,menu.getSymbolClass(symbolPly2));
 
   game.addPlayer(player1);
   game.addPlayer(player2);
   game.setTurn(0);
 
-  $('.menu').hide();
-
-  $('.panel').css('visibility','visible');
-  $('.grid').css('visibility','visible');
+  menu.hide();
+  menu.showPanel();
+  menu.showGrid();
 
 }
 
