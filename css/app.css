@@ -194,6 +194,13 @@ header {
 
 }
 
+.panel .name {
+
+  font-family: Kalam;
+  font-size: 20px;
+  float:left;
+}
+
 /* The Modal (background) */
 
 

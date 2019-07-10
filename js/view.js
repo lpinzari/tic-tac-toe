@@ -149,6 +149,14 @@ const modalVictory = {
 
 };
 
+const panel = {
+
+  renderCurrentPlayer: function(name, symbolClass) {
+    $('span')[0].innerHTML = `${name}'s Turn: <i class="${symbolClass}" aria-hidden="true"></i> `;
+  }
+
+}
+
 /* object: board
  *
  * Description.

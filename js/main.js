@@ -45,6 +45,7 @@ const gameController = {
 
     menu.hide();
     menu.showPanel();
+    panel.renderCurrentPlayer(namePly1,menu.getSymbolClass(symbolPly1));
     menu.showGrid();
 
   },
@@ -64,6 +65,7 @@ const gameController = {
           game.getPlayerTurn().addMove(value);
 
           let symbol = game.getPlayerTurn().getSymbol();
+
           board.renderCell(cell, symbol);
 
           if (game.isOver()) {
@@ -71,6 +73,9 @@ const gameController = {
             modalVictory.displayResult(game.hasWinner());
           } else {
             game.switchTurn();
+            let name = game.getPlayerTurn().getName();
+            let symbol = game.getPlayerTurn().getSymbol();
+            panel.renderCurrentPlayer(name,symbol);
           }
 
        }
