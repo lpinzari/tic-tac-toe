@@ -155,9 +155,9 @@ const game = {
     if (this.winner.length === 1) {
       return true;
     } else {
-      return false
+      return false;
     }
-    
+
   }
 
 };

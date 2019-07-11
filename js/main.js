@@ -11,6 +11,7 @@
 *   - player      menuHandler               - menu
 *   - game        gridHandler               - board
 *                 modalVictoryHandler       - modalVictory
+*                                           - panel
 * ----------------------------------------------------------
 */
 
